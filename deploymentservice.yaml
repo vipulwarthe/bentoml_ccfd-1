@@ -31,7 +31,7 @@ spec:
                 app: xgb-classifier
         spec:
             containers:
-            - image: devbarahen61/xgb_classifier:latest
+            - image: devbarahen61/xgb_classifier:${BUILD_NUMBER}
               imagePullPolicy: IfNotPresent
               name: xgb-classifier
               ports:
