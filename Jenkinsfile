@@ -24,10 +24,5 @@ node {
              sh 'kubectl apply -f deploymentservice.yaml'
            }
 
-           #stage("Cleanup resources"){                        
-            # sh 'echo cleanup'
-            # sh "docker rmi devbarahen61/xgb_classifier:${BUILD_NUMBER}"
-            # sh "docker rmi devbarahen61"
-            #}
         }
     }
