@@ -21,7 +21,7 @@ node {
           }
 
           stage("Kubernetes deployment"){
-             sh 'sed -i "s/ BUILD_NUMBER /${BUILD_NUMBER}/" deploymentservice.yaml'
+             sh 'sed -i "s/_BUILD_NUMBER_/${BUILD_NUMBER}/" deploymentservice.yaml'
              sh 'kubectl apply -f deploymentservice.yaml'
            }
 
