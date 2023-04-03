@@ -8,7 +8,7 @@ node {
              sh 'pip install -r requirements.txt'
              sh 'python3 train.py'
              sh 'bentoml build .'
-             sh 'bentoml containerize tag xgb_classifier:$BUILD_NUMBER devbarahen61/xgb_classifier:$BUILD_NUMBER'
+             sh 'bentoml containerize xgb_classifier:latest -t devbarahen61/xgb_classifier:latest'
 
          }
 
@@ -17,11 +17,10 @@ node {
           }
 
           stage("Push image to docker hub"){
-             sh 'docker push devbarahen61/xgb_classifier:$BUILD_NUMBER'
+             sh 'docker push devbarahen61/xgb_classifier:latest'
           }
 
           stage("Kubernetes deployment"){
-             sh 'sed -i "s/_BUILD_NUMBER_/${BUILD_NUMBER}/" deploymentservice.yaml'
              sh 'kubectl apply -f deploymentservice.yaml'
            }
 
