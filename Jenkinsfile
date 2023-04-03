@@ -1,7 +1,7 @@
 node {
          stage("Git Clone"){
 
-         git credentialsId: 'Git-hub-Credentials', url: "https://github.com/Devendra61/bentoml_ccfd.git"
+         git credentialsId: 'Git-Hub-Credentials', url: "https://github.com/Devendra61/bentoml_ccfd.git"
          
          stage("Docker build"){
              sh 'docker version'
@@ -12,8 +12,8 @@ node {
 
          }
 
-          withcredentials([string(credentialsid:'Docker-Hub-Password', variable: 'PASSWORD')]){
-             sh 'docker login -u devbarahen61 p $PASSWORD'
+          withcredentials([string(credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD')]){
+             sh 'docker login -u devbarahen61 -p $PASSWORD'
           }
 
           stage("Push image to docker hub"){
