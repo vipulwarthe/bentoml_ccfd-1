@@ -11,8 +11,8 @@ node {
              sh 'bentoml containerize xgb_classifier:latest -t devbarahen61/xgb_classifier:latest'
 
          }
-
-          withcredentials([string(credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD')]){
+          stage("Docker Login"){
+          docker credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD'
              sh 'docker login -u devbarahen61 -p $PASSWORD'
           }
 
