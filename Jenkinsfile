@@ -9,18 +9,19 @@ node {
              sh 'python3 train.py'
              sh 'bentoml build .'
              sh 'bentoml containerize xgb_classifier:latest -t devbarahen61/xgb_classifier:latest'
-
+         
          }
-          stage("Docker Login"){
-          docker credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD'
-                   sh 'docker login -u devbarahen61 -p ${PASSWORD}'
-          }
-
-          stage("Push image to docker hub"){
+         stage("Docker Login"){
+                   
+         withCredentials([string(credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD')]) {
+        	         sh "docker login -u devbarahen61 -p ${PASSWORD}"
+         }
+         
+         stage("Push image to docker hub"){
              sh 'docker push devbarahen61/xgb_classifier:latest'
-          }
+         }
 
-          stage("Kubernetes deployment"){
+         stage("Kubernetes deployment"){
              sh 'kubectl apply -f deploymentservice.yaml'
            }
 
