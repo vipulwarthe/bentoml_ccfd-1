@@ -25,6 +25,7 @@ spec:
     selector:
         matchLabels:
             app: xgb-classifier
+    replicas: 2
     template:
         metadata:
             labels:
