@@ -16,7 +16,7 @@ node {
          withCredentials([string(credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD')]) {
         	         sh "docker login -u devbarahen61 -p ${PASSWORD}"
          }
-         
+         }
          stage("Push image to docker hub"){
              sh 'docker push devbarahen61/xgb_classifier:latest'
          }
