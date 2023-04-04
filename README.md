@@ -4,11 +4,8 @@
 git clone https://github.com/Devendra61/bentoml_ccfd.git 
 ``` 
 ```bash 
-cd bentoml_ccfd 
+cd bentoml_ccfd && pip install -r requirements.txt
 ``` 
-```bash
-pip install -r requirements.txt
-```
 ```bash
 python3 train.py 
 ```
