@@ -13,8 +13,8 @@ node {
          }
          stage("Docker Login"){
                    
-         withCredentials([string(credentialsId: 'Docker-Hub-Password', variable: 'PASSWORD')]) {
-        	         sh "docker login -u devbarahen61 -p ${PASSWORD}"
+             withCredentials([string(credentialsId: 'devbarahen61', variable: 'PASSWORD')]) {
+        	    sh "docker login -u devbarahen61 -p ${PASSWORD}"
          }
          }
          stage("Push image to docker hub"){
