@@ -22,7 +22,7 @@ node {
          }
 
          stage("Kubernetes deployment"){
-             sh 'kubectl apply -f deploymentservice.yaml'
+             sh 'kubectl apply -f ~/bentoml_ccfd/deploymentservice.yaml'
            }
 
         }
