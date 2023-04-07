@@ -5,7 +5,6 @@ node {
          
          stage("Docker build"){
              sh 'docker version'
-             sh 'pwd'
              sh 'pip install -r requirements.txt'
              sh 'python3 train.py'
              sh 'bentoml build .'
