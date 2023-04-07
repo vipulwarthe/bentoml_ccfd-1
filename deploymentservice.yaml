@@ -4,7 +4,7 @@ metadata:
     labels:
         app: xgb-classifier
     name: xgb-classifier
-    namespace: default
+    namespace: bento-deploy
 spec:
     ports:
     - name: predict
@@ -22,12 +22,12 @@ metadata:
     labels:
         app: xgb-classifier
     name: xgb-classifier
-    namespace: default
+    namespace: bento-deploy
 spec:
     selector:
         matchLabels:
             app: xgb-classifier
-    replicas: 2
+    replicas: 3
     template:
         metadata:
             labels:
