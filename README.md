@@ -16,3 +16,4 @@ bentoml serve service.py:svc --reload
 
 #### https://<instance_public_ip>:8080/
 
+#### to be continued
